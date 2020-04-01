@@ -21,7 +21,7 @@ void BENHNHAN::nhap(){
 }
 
 void BENHNHAN::xuat(){
-    cout << setw(10) << hoTen << setw(10) << queQuan << setw(5) << namSinh;
+    cout << setw(10) << hoTen << setw(15) << queQuan << setw(10) << namSinh;
 }
 
 class BENHAN: public BENHNHAN {
@@ -37,12 +37,13 @@ public:
 
 void BENHAN::nhap(){
     BENHNHAN::nhap();
+    cout << "Nhap ten benh an: ";   fflush(stdin);  gets(tenBenhAn);
     cout << "Nhap vien phi: ";  cin >> vienPhi;
 }
 
 void BENHAN::xuat(){
     BENHNHAN::xuat();
-    cout << setw(5) << vienPhi << endl;
+    cout << setw(10) << tenBenhAn << setw(10) << vienPhi << endl;
 }
 
 int BENHAN::tinhTuoi(){
@@ -50,7 +51,7 @@ int BENHAN::tinhTuoi(){
 }
 
 void tieuDe(){
-    cout << setw(10) << "hoTen" << setw(10) << "queQuan" << setw(5) << "namSinh" << setw(5) << "vienPhi" << endl;
+    cout << setw(10) << "hoTen" << setw(15) << "queQuan" << setw(10) << "namSinh" << setw(10) << "tenBenhAN" << setw(10) << "vienPhi" << endl;
 }
 
 void nhapBenhAn(BENHAN *&listBenhAn, int &n){
