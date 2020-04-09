@@ -16,7 +16,7 @@ protected:
 public:
     void nhap();
     void xuat();
-    long tinhLuong();
+    double tinhLuong();
 };
 
 void CanBo::nhap(){
@@ -40,18 +40,18 @@ void CanBo::xuat(){
     cout << setw(10) << tinhLuong() << endl;
 }
 
-long CanBo::tinhLuong(){
+double CanBo::tinhLuong(){
     return heSoLuong*luongCB + phuCapAnca - baoHiem;
 }
 
 class GiangVien: public CanBo{
 private:
-    int phuCapDungLop;
-    int phuCapDocHai;
+    double phuCapDungLop;
+    double phuCapDocHai;
     int docHai;
 public:
     void nhap();
-    long tinhLuong();
+    double tinhLuong();
     friend void displayBySalary(GiangVien *x, CanBo *y, int n, int m);
 };
 
@@ -60,7 +60,7 @@ void GiangVien::nhap(){
     cout << "Co doc hai hay khong (1.Co/2.Ko): "; cin >> docHai;
 }
 
-long GiangVien::tinhLuong(){
+double GiangVien::tinhLuong(){
     if(docHai == 2){
         phuCapDungLop *= 0.25*luongCB;
         return heSoLuong*luongCB + phuCapAnca + phuCapDungLop - baoHiem;

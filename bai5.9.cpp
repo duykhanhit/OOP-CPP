@@ -20,15 +20,15 @@ class HoaDon:public SanPham{
 	public:
 		void nhap();
 		void xuat();
-		long long tinhThanhTien();
-		long thue();
+		long tinhThanhTien();
+		float thue();
 		long lai();
 };
 void title(){
-	cout<<setw(3)<<"STT"	;
+	cout<<setw(3)<<"STT";
 	cout<<setw(15)<<"TenSP";
 	cout<<setw(10)<<"GiaThanh";
-	cout<<setw(7)<<"SoLuongBan";
+	cout<<setw(15)<<"SoLuongBan";
 	cout<<setw(10)<<"GiaBan";
 	cout<<setw(12)<<"ThanhTien";
 	cout<<setw(10)<<"Thue";
@@ -48,10 +48,10 @@ void HoaDon::nhap(){
 	cout<<"\n Nhap so luong ban: ";cin>>soLuongBan;
 	cout<<"\n Nhap gia ban: ";cin>>giaBan;
 }
-long long HoaDon::tinhThanhTien(){
+long HoaDon::tinhThanhTien(){
 	return soLuongBan*giaBan;
 }
-long HoaDon::thue(){
+float HoaDon::thue(){
 	return tinhThanhTien()*0.1;
 }
 long HoaDon::lai(){
@@ -59,15 +59,15 @@ long HoaDon::lai(){
 }
 void HoaDon::xuat(){
 	SanPham::xuat();
-	cout<<setw(7)<<soLuongBan;
+	cout<<setw(15)<<soLuongBan;
 	cout<<setw(10)<<giaBan;
 	cout<<setw(12)<<tinhThanhTien();
-	cout<<setw(10)<<tinhThanhTien()*0.1;
+	cout<<setw(10)<<setprecision(3)<<fixed<<tinhThanhTien()*0.1;
 	cout<<setw(10)<<(giaBan - giaThanh)*soLuongBan<<endl;
 }
 void nhapDanhSach(HoaDon *&list, int n){
 	list = new HoaDon[n];
-	cout<<"\n \tNhap danh sach gom "<<n<<" hoa don\n";
+	cout<<"\n============Nhap danh sach gom "<<n<<" hoa don================\n";
 	for(int i=0;i<n;i++){
 		cout<<"nhap thong tin hoa don thu "<<i+1<<": \n";
 		list[i].nhap();
@@ -91,8 +91,8 @@ void sapXep(HoaDon *list, int n){
 		}
 	}
 }
-long long tongTien(HoaDon *list, int n){
-	long long sum = 0;
+long tongTien(HoaDon *list, int n){
+	long sum = 0;
 	for(int i=0;i<n;i++){
 		sum +=list[i].tinhThanhTien();
 	}
@@ -100,7 +100,7 @@ long long tongTien(HoaDon *list, int n){
 }
 void thueMax(HoaDon *list, int n){
 	title();
-	long max = list[0].thue();
+	float max = list[0].thue();
 	for(int i=1;i<n;i++){
 		if (list[i].thue()>max){
 			max = list[i].thue();
@@ -121,11 +121,10 @@ int main(){
 	cout<<"\n Nhap so luong Hoa Don: ";
 	cin>>n;
 	nhapDanhSach(list,n);
-	system("cls");
 	sapXep(list,n);
 	cout<<"====================DANH SACH HOA DON-=======================\n";
 	hienThiDanhSach(list,n);
-	cout<<"\n\tTong tien cua cac hoa don: "<<setprecision(10)<<fixed<<tongTien(list,n);
+	cout<<"\n\tTong tien cua cac hoa don: "<<setprecision(10)<<fixed<<tongTien(list,n) << endl;
 	cout<<"===============DANH SACH HOA DON CO THUE CAO NHAT===============\n";
 	thueMax(list,n);
 	return 0;
