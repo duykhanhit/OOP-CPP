@@ -8,8 +8,8 @@ private:
 public:
     void nhap();
     void xuat();
-    friend vecto operator+(vecto a, vecto b);
-    friend vecto operator-(vecto a, vecto b);
+    vecto operator+(vecto a);
+//    vecto operator-(vecto a);
 };
 
 void vecto::nhap(){
@@ -21,19 +21,19 @@ void vecto::xuat(){
     cout << "(" << x << "," << y << ")";
 }
 
-vecto operator+(vecto a, vecto b){
+vecto vecto::operator+(vecto a){
     vecto t;
-    t.x = a.x + b.x;
-    t.y = a.y + b.y;
+    t.x = x + a.x;
+    t.y = y + a.y;
     return t;
 }
 
-vecto operator-(vecto a, vecto b){
-    vecto h;
-    h.x = a.x - b.x;
-    h.y = a.y - b.y;
-    return h;
-}
+//vecto operator-(vecto a, vecto b){
+//    vecto h;
+//    h.x = a.x - b.x;
+//    h.y = a.y - b.y;
+//    return h;
+//}
 
 int main()
 {
@@ -45,6 +45,6 @@ int main()
     cout << "Tong = ";
     (a+b).xuat();
     cout << endl << "Hieu = ";
-    (a-b).xuat();
+//    (a-b).xuat();
     return 0;
 }
