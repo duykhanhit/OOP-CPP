@@ -1,4 +1,4 @@
 # Bài tập lập trình hướng đổi tượng
-- Tổng hợp bài tập OOP viết bằng C++
+- Tổng hợp bài tập OOP viết bằng C++ tại trường ĐHCNHN
 - Facebook: fb.com/duykhanhit.hp
 ### Các bạn star cho mình với nha <333
